@@ -705,3 +705,35 @@ ALL_TICKERS = [
     "DOUG",
     "LRHC",
 ]
+
+
+# Bank tickers grouped by size
+
+large_banks = [
+    'JPM', 'BAC', 'WFC', 'C', 'COF', 'USB', 'PNC', 'TFC', 'CMA', 'CFR', 
+    'RF', 'KEY', 'ZION', 'HBAN', 'STI', 'CYN', 'CIT'
+]
+
+medium_banks = [
+    'FHN', 'SNV', 'BOKF', 'UMBF', 'WTNY', 'PNFP', 'TCF', 'WBS', 'VLY', 
+    'CSFL', 'WAFD', 'CADE', 'FULT', 'WABC', 'CBU', 'FFBC', 'WSBC', 
+    'WSFS', 'SFNC', 'OPB', 'CHCO', 'OFG', 'BANC', 'FRME', 'FNB', 
+    'NBHC', 'TRMK', 'CBF', 'FMBI', 'AROW', 'SCNB', 'NPBC', 'ONB', 'FCB',
+    'PACW'
+]
+
+small_banks = [
+    'NEWT', 'CRBC', 'FMER', 'SRL', 'SUSQ', 'PEBO', 'ASRV', 'AMNB', 
+    'NIC', 'ALNC', 'FFKT', 'BYU', 'FDBC', 'FCF', 'FLIC', 'FUNC', 
+    'FCEC', 'ALRS', 'HBNC', 'MBTF', 'NBTB', 'PRK', 'LNBB', 'GNBC', 
+    'SAVB', 'AVNU', 'NCOM', 'NKSH', 'SMBK', 'STEL', 'BANF', 'MSL', 
+    'LARK', 'DNBF', 'COB', 'PNBK', 'NWBI', 'HAFC', 'MBFI', 'ATLO', 
+    'MRBK', 'AMAL', 'AMTB', 'CART', 'SASR', 'BSF', 'DCOM', 'BARI', 
+    'CFCB', 'NBTF', 'EMCF', 'UBFO', 'EVBN', 'PCBK', 'CAC', 'MBRG', 
+    'IBCA', 'LCNB', 'HOPE', 'OPOF', 'PFIS', 'BRBS', 'FNFG', 'BNCN', 
+    'SMMF', 'HWBK', 'COBZ', 'FNLC', 'FCCO', 'CFNL', 'FNCB', 'XBKS', 
+    'VABK', 'CJBK', 'STL', 'CZFC', 'PMBC', 'FISI', 'SFST', 'SHBI', 
+    'BBNK', 'ABVA', 'SVBI', 'FBMS', 'OPHC', 'MNRK', 'NAL', 'TBBK', 
+    'FCLF', 'CUNB', 'FSGI', 'MNSB', 'LMST', 'CARE', 'EBTX', 'EBSB', 
+    'RIVE', 'TLMR', 'VIST', 'MFCB'
+]
