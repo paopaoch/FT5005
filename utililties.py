@@ -260,3 +260,53 @@ def check_if_all_nan_by_ticker(df, feature):
         if df[df['tic'] == ticker][feature].isna().all():
             empty_tickers.append(ticker)
     return empty_tickers
+
+
+def forward_fill_dates(df, date_column='Date', date_format=None, sort_asc=True):
+    """
+    Fill in missing dates in a DataFrame and forward fill values for all numeric columns.
+    
+    Parameters:
+    -----------
+    df : pandas.DataFrame
+        The DataFrame containing data with gaps in dates.
+    date_column : str, default 'Date'
+        Name of the column containing dates.
+    date_format : str, default None
+        Format string for parsing dates. If None, pandas will attempt to infer the format.
+    sort_asc : bool, default True
+        Whether to sort dates in ascending order.
+    
+    Returns:
+    --------
+    pandas.DataFrame
+        A DataFrame with all dates in the range and forward-filled values.
+    """
+    # Make a copy to avoid modifying the original DataFrame
+    result_df = df.copy()
+    
+    # Convert date column to datetime if it's not already
+    if not pd.api.types.is_datetime64_any_dtype(result_df[date_column]):
+        result_df[date_column] = pd.to_datetime(result_df[date_column], format=date_format)
+    
+    # Sort by date if requested
+    if sort_asc:
+        result_df = result_df.sort_values(by=date_column)
+    
+    # Get min and max dates
+    min_date = result_df[date_column].min()
+    max_date = result_df[date_column].max()
+    
+    # Create a DataFrame with all dates in the range
+    all_dates = pd.DataFrame({date_column: pd.date_range(start=min_date, end=max_date, freq='D')})
+    
+    # Merge with original data
+    filled_df = all_dates.merge(result_df, on=date_column, how='left')
+    
+    # Forward fill the missing values
+    filled_df = filled_df.sort_values(by=date_column).ffill()
+    
+    # Reset index for clean output
+    filled_df = filled_df.reset_index(drop=True)
+    
+    return filled_df
